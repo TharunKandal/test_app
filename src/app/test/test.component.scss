@@ -1,9 +1,8 @@
 .table-container{
     width: 60%;
-    margin-top: 65px;
+    // margin-top: 65px;
     display: flex;
     justify-content: center;
-    padding: 50px;
 }
 
 thead, tbody, tfoot, tr, td, th {
@@ -14,7 +13,8 @@ thead, tbody, tfoot, tr, td, th {
 .container{
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    // align-items: center;
+    padding-top: 20px;
 }
 
 .image-frame{

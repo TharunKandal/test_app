@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.scss']
 })
@@ -9,7 +8,7 @@ export class TestComponent implements OnInit {
 
   constructor() { }
 
-  image = "https://reqres.in/img/faces/7-image.jpg"
+  image:string = ""
 
   data = [
     {
@@ -56,6 +55,7 @@ export class TestComponent implements OnInit {
     }
 ];
   ngOnInit(): void {
+  this.image = "https://reqres.in/img/faces/7-image.jpg"
   }
 
   maximize(url:string){
