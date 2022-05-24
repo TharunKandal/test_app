@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-formcomponent',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormcomponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  profileForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    console.warn(this.profileForm.value);
+    this.router.navigate(['/welcome']);
   }
 
 }

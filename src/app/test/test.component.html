@@ -16,12 +16,19 @@
                 <td>{{item.email}}</td>
                 <td>{{item.first_name}}</td>
                 <td>{{item.last_name}}</td>
-                <td (click)= 'maximize(item.avatar)' ><img [src]=item.avatar /></td>
+                <td (click)= 'maximize(item)' ><img [src]=item.avatar /></td>
             </tr>
         </tbody>
       </table>
       </div>
-      <div class="image-frame">
-          <img [src]="image">
+<div class="card user-details-card">
+        <div class="card-header">
+          <div class="image-frame">
+            <img [src]="image">
+        <div class="card-body">
+          <!-- <p><span class="key">First Name :</span>{{selected.first_name}}</p>
+          <p><span class="key">Last Name :</span>{{selected.last_name}}</p>
+          <p><span class="key">Email :</span>{{selected.email}}</p> -->
+        </div>
       </div>
 </div>
