@@ -3,32 +3,30 @@ import { UserService } from '../user.service';
 
 @Component({
   templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+  styleUrls: ['./test.component.scss'],
 })
 export class TestComponent implements OnInit {
+  constructor(private userService: UserService) {}
 
-  constructor(private userService:UserService) { }
+  products: any = {};
+  selected: any = {};
 
-  image:string = ""
-  selected:object ={
-    id:'',
-    first_name:'',
-    last_name:'',
-    email:'',
-    avatar:''
-  }
-
-  data:any = [];
+  data: any = [];
 
   ngOnInit(): void {
-  this.data = this.userService.getUsers();
-  this.image = "https://reqres.in/img/faces/7-image.jpg",
-  this.selected = this.data[0];
+    this.data = this.userService.getUsers().subscribe({
+      next: (product) => {
+        (this.data = product.data),
+          (this.products = this.data),
+          (this.selected = this.data[0]);
+      },
+      error: (err) => console.log(err),
+    });
+    this.selected = this.data[0];
   }
 
-  maximize(user:any){
-    this.image = user.avatar;
+  maximize(user: any) {
+    this.products = user;
     this.selected = user;
-    console.log('Maximize')
   }
 }

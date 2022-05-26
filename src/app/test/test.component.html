@@ -1,34 +1,56 @@
 <div class="container">
-<div class="table-container"> 
+  <div class="table-container">
     <table class="table table-striped">
-        <thead>
-          <tr class="table-dark">
-            <th scope="col">Id</th>
-            <th scope="col">Email</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Avatar</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of data; index as i;">
-                <td>{{item.id}}</td>
-                <td>{{item.email}}</td>
-                <td>{{item.first_name}}</td>
-                <td>{{item.last_name}}</td>
-                <td (click)= 'maximize(item)' ><img [src]=item.avatar /></td>
-            </tr>
-        </tbody>
-      </table>
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">Id</th>
+          <th scope="col">Email</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Avatar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data; index as i">
+          <td>{{ item.id }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.first_name }}</td>
+          <td>{{ item.last_name }}</td>
+          <td (click)="maximize(item)"><img [src]="item.avatar" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card user-details-card">
+    <div class="card-header">
+      <div class="image-frame">
+        <img [src]="selected.avatar" *ngIf="[selected.avatar]" />
       </div>
-<div class="card user-details-card">
-        <div class="card-header">
-          <div class="image-frame">
-            <img [src]="image">
-        <div class="card-body">
-          <!-- <p><span class="key">First Name :</span>{{selected.first_name}}</p>
-          <p><span class="key">Last Name :</span>{{selected.last_name}}</p>
-          <p><span class="key">Email :</span>{{selected.email}}</p> -->
-        </div>
+    </div>
+
+    <div class="card-body" *ngIf="[selected]">
+      <ul style="list-style: none">
+        <li>
+          <span class="key fw-bold p-5">First Name :</span
+          >{{ selected.first_name }}
+        </li>
+        <li>
+          <span class="key fw-bold p-5">Last Name :</span
+          >{{ selected.last_name }}
+        </li>
+        <li>
+          <span class="key fw-bold p-5">Email :</span>{{ selected.email }}
+        </li>
+      </ul>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <button
+          type="button"
+          class="btn btn-dark"
+          [routerLink]="['/user', selected.id, 'edit']"
+        >
+          Edit
+        </button>
       </div>
+    </div>
+  </div>
 </div>
