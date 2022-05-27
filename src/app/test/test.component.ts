@@ -22,7 +22,6 @@ export class TestComponent implements OnInit {
       },
       error: (err) => console.log(err),
     });
-    this.selected = this.data[0];
   }
 
   maximize(user: any) {
